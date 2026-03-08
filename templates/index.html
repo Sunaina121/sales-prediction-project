@@ -1,47 +1,83 @@
  <!DOCTYPE html>
 <html>
-
 <head>
-<title>Sales Prediction</title>
+<title>Sales Prediction System</title>
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<style>
+body{
+font-family:Arial;
+background:#f2f2f2;
+text-align:center;
+}
+
+.container{
+background:white;
+width:400px;
+margin:auto;
+padding:30px;
+margin-top:80px;
+border-radius:10px;
+box-shadow:0px 0px 10px gray;
+}
+
+input{
+width:90%;
+padding:10px;
+margin:10px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+button{
+background:#4CAF50;
+color:white;
+padding:10px 20px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#45a049;
+}
+
+h1{
+color:#333;
+}
+
+.result{
+color:green;
+font-size:20px;
+margin-top:20px;
+}
+</style>
 
 </head>
 
 <body>
 
-<h1 style="text-align:center;">Sales Prediction Using Machine Learning</h1>
-<p style="text-align:center;">Enter advertising budget to predict future sales</p>
+<div class="container">
+
+<h1>Sales Prediction Using Machine Learning</h1>
 
 <form action="/predict" method="post">
 
-<input type="text" name="TV" placeholder="TV Advertising Budget" required>
+<input type="text" name="TV" placeholder="Enter TV Advertising Budget" required>
 
-<input type="text" name="Radio" placeholder="Radio Advertising Budget" required>
+<input type="text" name="Radio" placeholder="Enter Radio Advertising Budget" required>
 
-<input type="text" name="Newspaper" placeholder="Newspaper Advertising Budget" required>
-
-<br>
+<input type="text" name="Newspaper" placeholder="Enter Newspaper Advertising Budget" required>
 
 <button type="submit">Predict Sales</button>
 
 </form>
 
 <div class="result">
-
-<h2 style="color:green; text-align:center;">
 {{ prediction_text }}
-</h2>
-
 </div>
-
-{% if show_graph %}
-<img src="{{ url_for('static', filename=graph_image) }}" width="400">
-{% endif %}
 
 </div>
 
 </body>
-
-
 </html>
+

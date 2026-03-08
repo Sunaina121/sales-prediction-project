@@ -1,0 +1,45 @@
+ <!DOCTYPE html>
+<html>
+
+<head>
+<title>Sales Prediction</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Sales Prediction System</h1>
+
+<form action="/predict" method="post">
+
+<input type="text" name="TV" placeholder="TV Advertising Budget" required>
+
+<input type="text" name="Radio" placeholder="Radio Advertising Budget" required>
+
+<input type="text" name="Newspaper" placeholder="Newspaper Advertising Budget" required>
+
+<br>
+
+<button type="submit">Predict Sales</button>
+
+</form>
+
+<div class="result">
+
+{{ prediction_text }}
+
+</div>
+
+{% if show_graph %}
+<img src="{{ url_for('static', filename=graph_image) }}" width="400">
+{% endif %}
+
+</div>
+
+</body>
+
+</html>

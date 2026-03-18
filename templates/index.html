@@ -1,50 +1,58 @@
- <!DOCTYPE html>
+   <!DOCTYPE html>
 <html>
 
 <head>
-<title>Sales Prediction</title>
+    <title>Sales Prediction</title>
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
 
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-<h1 style="text-align:center;">Sales Prediction Using Machine Learning</h1>
-<p style="text-align:center;">Enter advertising budget to predict future sales</p>
+<h2 style="text-align:center; color:#333;">
+    Sales Forecasting System
+</h2>
+
+<h1 style="text-align:center;">
+    Sales Prediction Using Machine Learning
+</h1>
+
+<p style="text-align:center;">
+    Enter advertising budget to predict future sales
+</p> 
 
 <form action="/predict" method="post">
 
-<input type="text" name="TV" placeholder="TV Advertising Budget" required>
+    <input type="number" step="any" name="TV" placeholder="TV Advertising Budget" required>
+    <input type="number" step="any" name="Radio" placeholder="Radio Advertising Budget" required>
+    <input type="number" step="any" name="Newspaper" placeholder="Newspaper Advertising Budget" required>
 
-<input type="text" name="Radio" placeholder="Radio Advertising Budget" required>
+    <p style="font-size:12px; color:gray;">
+        Enter numeric values only (e.g., 200, 50.5)
+    </p>
 
-<input type="text" name="Newspaper" placeholder="Newspaper Advertising Budget" required>
+    <br>
 
-<br>
-
-<button type="submit">Predict Sales</button>
+    <button type="submit">Predict Sales</button>
 
 </form>
 
 <div class="result">
-
-<h2 style="color:green; text-align:center;">
-{{ prediction_text }}
-</h2>
-
+    <div style="text-align:center; font-weight:bold; margin-top:20px;">
+        <strong>{{ prediction_text }}</strong>
+    </div>
 </div>
+
+<h3 style="text-align:center;">Prediction Graph</h3>
 
 {% if show_graph %}
 <img src="{{ url_for('static', filename=graph_image) }}" width="400">
 {% endif %}
 
-</div>
-
 </body>
 
-
 </html>
-
 
 

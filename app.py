@@ -23,14 +23,14 @@ def predict():
         output = round(prediction[0], 2)
 
         # Graph
-        import matplotlib.pyplot as plt
         plt.figure()
         plt.scatter(tv, output, color='red', label="Prediction")
         plt.xlabel("TV Budget")
         plt.ylabel("Sales")
         plt.title("Sales Prediction Graph")
         plt.legend()
- graph_path = os.path.join('static', 'dynamic_graph.png')
+
+        graph_path = os.path.join('static', 'dynamic_graph.png')
         plt.savefig(graph_path)
         plt.close()
 
@@ -51,4 +51,4 @@ def predict():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    app.run(debug=True, host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=port)

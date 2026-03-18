@@ -30,8 +30,7 @@ def predict():
         plt.ylabel("Sales")
         plt.title("Sales Prediction Graph")
         plt.legend()
-
-        graph_path = "static/dynamic_graph.png"
+ graph_path = os.path.join('static', 'dynamic_graph.png')
         plt.savefig(graph_path)
         plt.close()
 
